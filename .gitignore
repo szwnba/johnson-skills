@@ -1,0 +1,18 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node (部分 skill 可能带脚本)
+node_modules/
+
+# Secrets — MCP 配置里的 key 一律不入库
+.env
+*.env
+secrets/
