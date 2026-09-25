@@ -23,6 +23,8 @@
 
 所有 skill 遵循 [Agent Skills](https://agentskills.io) 开放标准，Claude Code、ZCode、Codex 等 40+ Agent 通用。
 
+> 🌐 在线展示页：**https://szwnba.github.io/johnson-skills/**
+
 ---
 
 ## 📋 目录
