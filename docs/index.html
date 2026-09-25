@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johnson Skills · AI Skill 收藏库</title>
+<meta name="description" content="Johnson 收藏在用的 AI Skill / MCP / Prompt 个人工具箱：19 个收藏 skill、1 个自研 prompt、1 个 MCP 配方，均标注上游来源，可一键恢复。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EBEEE4;
+  --card:#FAFAF4;
+  --ink:#20261D;
+  --ink-soft:#51584B;
+  --moss:#3C5A40;
+  --moss-deep:#2C4430;
+  --line:#C9CFBC;
+  --line-soft:#DDE0D2;
+  --stamp:#B23A26;
+  --term:#23281F;
+  --term-ink:#E8EBDD;
+  --term-green:#9CC58C;
+  --focus:#27418F;
+  --mono:"IBM Plex Mono","PingFang SC","Noto Sans SC","Microsoft YaHei",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+body{
+  background:var(--paper);
+  background-image:radial-gradient(var(--line-soft) 1px,transparent 1px);
+  background-size:26px 26px;
+  color:var(--ink);
+  font-family:var(--mono);
+  font-size:15px;
+  line-height:1.65;
+}
+a{color:var(--moss-deep)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ── 顶栏 ─────────────────────────── */
+.eyebrow{border-bottom:1px solid var(--line);background:var(--paper)}
+.eyebrow-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;flex-wrap:wrap}
+.eyebrow .repo{font-weight:600;font-size:13px;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.eyebrow .repo:hover{color:var(--moss)}
+.eyebrow .meta{font-size:12px;color:var(--ink-soft)}
+nav{position:sticky;top:0;z-index:20;background:rgba(235,238,228,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;padding-top:0;padding-bottom:0;overflow-x:auto}
+nav a{display:block;padding:12px 14px;font-size:13px;font-weight:500;text-decoration:none;color:var(--ink-soft);white-space:nowrap;border-bottom:3px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a[aria-current]{color:var(--moss-deep);border-bottom-color:var(--stamp)}
+nav .count{font-size:11px;color:var(--ink-soft)}
+
+/* ── Hero：馆藏卡 ─────────────────── */
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:stretch}
+@media (max-width:840px){.hero{grid-template-columns:1fr;padding-top:40px}}
+.catalog-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:34px 34px 28px;
+  box-shadow:0 1px 0 var(--line),0 14px 34px -18px rgba(32,38,29,.35);
+}
+.catalog-card .fence{color:var(--ink-soft);font-weight:600;letter-spacing:.1em}
+.fm{margin:14px 0 6px;display:grid;gap:8px;font-size:15px}
+.fm .row{display:grid;grid-template-columns:130px 1fr;gap:10px}
+@media (max-width:520px){.fm .row{grid-template-columns:1fr}}
+.fm .key{color:var(--moss);font-weight:600}
+.fm .val{color:var(--ink)}
+.fm .desc{line-height:1.6}
+.tally{display:flex;gap:22px;margin:16px 0 4px;flex-wrap:wrap}
+.tally .num{font-size:30px;font-weight:700;color:var(--ink);line-height:1.1}
+.tally .num b{color:var(--stamp);font-weight:700}
+.tally .lab{font-size:12px;color:var(--ink-soft);letter-spacing:.08em}
+.stamp{
+  position:absolute;top:16px;right:20px;
+  border:3px solid var(--stamp);
+  color:var(--stamp);
+  border-radius:6px;
+  padding:3px 10px;
+  font-size:13px;font-weight:700;letter-spacing:.4em;text-indent:.4em;
+  transform:rotate(-7deg);
+  opacity:.82;
+  user-select:none;
+}
+.hero-side{display:flex;flex-direction:column;gap:12px}
+.term{
+  background:var(--term);
+  color:var(--term-ink);
+  border-radius:10px;
+  padding:20px 22px;
+  font-size:13px;
+  line-height:1.8;
+  flex:1;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  box-shadow:0 14px 34px -18px rgba(32,38,29,.5);
+}
+.term .bar{color:#8B917F;font-size:11px;letter-spacing:.12em;margin-bottom:10px;display:flex;gap:6px;align-items:center}
+.term .dot{width:9px;height:9px;border-radius:50%;background:#4A5241;display:inline-block}
+.term .cmd{color:var(--term-ink);word-break:break-all}
+.term .cmt{color:#8B917F}
+.term .ok{color:var(--term-green)}
+.hero-note{font-size:12px;color:var(--ink-soft);line-height:1.7}
+
+/* ── 分区标题 ─────────────────────── */
+section{padding:44px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--moss);padding-bottom:10px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:22px;font-weight:700;letter-spacing:.02em}
+.sec-head .sub{font-size:13px;color:var(--ink-soft)}
+
+/* ── 来源分组 ─────────────────────── */
+.group{margin-bottom:34px}
+.group-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.group-head .src{font-size:13px;font-weight:600;color:var(--moss-deep);text-decoration:none;border-bottom:1px dashed var(--line)}
+.group-head .src:hover{border-bottom-color:var(--moss)}
+.group-head .n{font-size:12px;color:var(--ink-soft)}
+
+/* ── 卡片 ─────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:18px 18px 14px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 26px -14px rgba(32,38,29,.4);border-color:var(--moss)}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .glyph{font-size:22px;line-height:1}
+.card h3{font-size:16px;font-weight:600}
+.card h3 a{color:var(--ink);text-decoration:none}
+.card h3 a:hover{color:var(--moss-deep);text-decoration:underline}
+.card p{font-size:13px;color:var(--ink-soft);line-height:1.7;flex:1}
+.card .foot{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chip{
+  font-size:11px;color:var(--moss-deep);
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:2px 10px;
+  text-decoration:none;
+  background:var(--paper);
+}
+a.chip:hover{border-color:var(--moss)}
+.chip.lic{color:var(--ink-soft)}
+.copy{
+  margin-left:auto;
+  font-family:var(--mono);
+  font-size:11px;font-weight:600;
+  color:var(--moss-deep);
+  background:transparent;
+  border:1.5px solid var(--moss);
+  border-radius:6px;
+  padding:4px 10px;
+  cursor:pointer;
+  transition:background .15s ease,color .15s ease;
+}
+.copy:hover{background:var(--moss);color:var(--card)}
+.copy.done{background:var(--stamp);border-color:var(--stamp);color:#fff}
+
+/* ── 宽卡：prompt / mcp ───────────── */
+.wide{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:24px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:18px;align-items:center;
+  margin-bottom:14px;
+}
+@media (max-width:720px){.wide{grid-template-columns:1fr}}
+.wide .glyph{font-size:30px}
+.wide h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.wide p{font-size:13px;color:var(--ink-soft);line-height:1.7}
+
+/* ── 安装方式 ─────────────────────── */
+.install{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px;display:grid;gap:20px}
+.way{display:grid;grid-template-columns:190px 1fr;gap:16px;align-items:start}
+@media (max-width:720px){.way{grid-template-columns:1fr}}
+.way .tag{font-size:13px;font-weight:600;color:var(--moss-deep);padding-top:2px}
+.way .tag small{display:block;font-weight:400;color:var(--ink-soft);font-size:11px;margin-top:2px}
+.way .body{font-size:13px;line-height:1.8;color:var(--ink)}
+.code-inline{
+  background:var(--term);color:var(--term-ink);
+  border-radius:6px;padding:2px 8px;font-size:12px;
+  word-break:break-all;
+}
+
+/* ── footer ───────────────────────── */
+footer{margin-top:56px;border-top:2px solid var(--moss);padding:26px 0 48px;font-size:12px;color:var(--ink-soft);line-height:1.9}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="eyebrow">
+  <div class="wrap eyebrow-inner">
+    <a class="repo" href="https://github.com/szwnba/johnson-skills">github.com/szwnba/johnson-skills</a>
+    <span class="meta">Agent Skills 开放标准 · Claude Code / ZCode / Codex 通用</span>
+  </div>
+</header>
+
+<nav aria-label="页面导航">
+  <div class="wrap">
+    <a href="#skills">Skills <span class="count">×19</span></a>
+    <a href="#prompt">Prompt <span class="count">×1</span></a>
+    <a href="#mcp">MCP <span class="count">×1</span></a>
+    <a href="#install">安装方式</a>
+    <a href="https://github.com/szwnba/johnson-skills">仓库 ↗</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="catalog-card">
+      <span class="stamp" aria-hidden="true">已馆藏</span>
+      <div class="fence">---</div>
+      <div class="fm">
+        <div class="row"><span class="key">name:</span><span class="val">johnson-skills</span></div>
+        <div class="row"><span class="key">description:</span><span class="val desc">收藏在用的 AI Skill / MCP / Prompt 个人工具箱。只干三件事：<b>备份、自研、一键恢复</b>。上游删库跑路，不影响我重装。</span></div>
+      </div>
+      <div class="tally">
+        <div><div class="num"><b>19</b></div><div class="lab">收藏 SKILL</div></div>
+        <div><div class="num">01</div><div class="lab">自研 PROMPT</div></div>
+        <div><div class="num">01</div><div class="lab">MCP 配方</div></div>
+        <div><div class="num">09</div><div class="lab">上游来源</div></div>
+      </div>
+      <div class="fence">---</div>
+    </div>
+    <div class="hero-side">
+      <div class="term" role="img" aria-label="整库恢复命令示例">
+        <div class="bar"><span class="dot"></span>换机器 · 整库恢复</div>
+        <div><span class="cmt">$ </span><span class="cmd">git clone https://github.com/szwnba/johnson-skills /tmp/js</span></div>
+        <div><span class="cmt">$ </span><span class="cmd">cp -r /tmp/js/skills/* ~/.agents/skills/</span></div>
+        <div><span class="ok">✓ 19 个 skill 一次装回</span></div>
+      </div>
+      <p class="hero-note">每个 skill 都遵循 <a href="https://agentskills.io">Agent Skills</a> 开放标准，40+ Agent 通用。卡片右上角的「复制安装链接」可以直接丢给你的 Agent 说：帮我装这个。</p>
+    </div>
+  </div>
+
+  <!-- ── Skills ── -->
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="sec-head">
+      <h2 id="skills-h">📦 Skills <span class="sub">按上游来源编目 · 均保留原仓库链接</span></h2>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/KKKKhazix/khazix-skills">KKKKhazix/khazix-skills</a><span class="n">×6</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🧭</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/leader">leader</a></h3></div>
+          <p>把一句话的想法拆成 agent 能独立跑完的目标任务书（先实测调研，再一次性提问 ≤5 个）。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/leader">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">🔥</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/aihot">aihot</a></h3></div>
+          <p>AIHOT 中文 AI 资讯 / 热点 / 日报查询（匿名只读 API，免 key 免 MCP）。</p>
+          <div class="foot"><span class="chip lic">MIT</span><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/aihot">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">📐</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/hv-analysis">hv-analysis</a></h3></div>
+          <p>横纵分析法深度研究：纵轴发展史叙事 + 横轴竞品对比，产出 PDF 研究报告。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/hv-analysis">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">✍️</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/khazix-writer">khazix-writer</a></h3></div>
+          <p>用卡兹克的口吻和节奏写公众号长文。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/khazix-writer">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">🧹</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/neat-freak">neat-freak</a></h3></div>
+          <p><code style="font-size:12px">/neat</code> 收尾：对齐项目文档、CLAUDE.md、agent 记忆，并审计规则执行情况。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/neat-freak">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">💽</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/storage-analyzer">storage-analyzer</a></h3></div>
+          <p>磁盘存储分析：只读扫描 + 🟢🟡🔴 三色分级 + 交互式 HTML 报告，网页一键清理。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/storage-analyzer">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/microsoft/playwright-cli">microsoft/playwright-cli</a><span class="n">×1</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🎭</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/playwright-cli">playwright-cli</a></h3></div>
+          <p>微软官方 agent 浏览器自动化 CLI：导航 / 快照 / 点击 / 填表 / 测试生成 / trace，附 11 篇参考文档。</p>
+          <div class="foot"><span class="chip lic">Apache-2.0</span><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/playwright-cli">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/kepano/obsidian-skills">kepano/obsidian-skills</a><span class="n">×4</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🧹</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/defuddle">defuddle</a></h3></div>
+          <p>网页 HTML 抽取为干净 Markdown（Defuddle CLI）。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/defuddle">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">🗃</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-markdown">obsidian-markdown</a></h3></div>
+          <p>Obsidian 风格 Markdown：wikilink、callout、frontmatter、嵌入语法。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-markdown">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">⌨️</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-cli">obsidian-cli</a></h3></div>
+          <p>用 Obsidian CLI 读写 vault：笔记、任务、属性、插件开发。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-cli">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">📊</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-bases">obsidian-bases</a></h3></div>
+          <p>创建 / 编辑 Obsidian Bases（.base 数据库视图：过滤、公式、汇总）。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/obsidian-bases">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/anthropics/skills">anthropics/skills</a><span class="n">×1</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🎨</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/frontend-design">frontend-design</a></h3></div>
+          <p>前端视觉设计审美指引，避免模板味的默认设计。本页就是按它做的。</p>
+          <div class="foot"><span class="chip lic">Apache-2.0</span><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/frontend-design">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/vercel-labs/agent-skills">vercel-labs/agent-skills</a><span class="n">×2</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">⚛️</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/vercel-react-best-practices">vercel-react-best-practices</a></h3></div>
+          <p>Vercel 官方 React / Next.js 性能优化规则库（90+ 条规则）。</p>
+          <div class="foot"><span class="chip lic">MIT</span><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/vercel-react-best-practices">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">🔍</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/web-design-guidelines">web-design-guidelines</a></h3></div>
+          <p>按 Web Interface Guidelines 审查 UI 代码与可访问性。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/web-design-guidelines">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/vercel-labs/skills">vercel-labs/skills</a><span class="n">×1</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🔎</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/find-skills">find-skills</a></h3></div>
+          <p>让 agent 帮你发现和安装新 skill。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/find-skills">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/mattpocock/skills">mattpocock/skills</a><span class="n">×2</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🔥</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/grill-me">grill-me</a></h3></div>
+          <p>用连环追问打磨一个方案或设计。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/grill-me">复制安装链接</button></div>
+        </article>
+        <article class="card">
+          <div class="top"><span class="glyph">🔥</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/grilling">grilling</a></h3></div>
+          <p>同上的持续拷问模式（触发词驱动）。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/grilling">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/obra/superpowers">obra/superpowers</a><span class="n">×1</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">⚡</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/using-superpowers">using-superpowers</a></h3></div>
+          <p>superpowers 生态入口：会话开始先查 skill 再动手。</p>
+          <div class="foot"><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/using-superpowers">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><a class="src" href="https://github.com/typesafe-ai/skills">typesafe-ai/skills</a><span class="n">×1</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="top"><span class="glyph">🧠</span><h3><a href="https://github.com/szwnba/johnson-skills/tree/main/skills/typesafe-ai">typesafe-ai</a></h3></div>
+          <p>用 TypeSafe System One（Jev）把自然语言 / 应用状态变成代码可用的类型化判断。</p>
+          <div class="foot"><span class="chip lic">MIT</span><button class="copy" data-copy="https://github.com/szwnba/johnson-skills/tree/main/skills/typesafe-ai">复制安装链接</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Prompt ── -->
+  <section id="prompt" aria-labelledby="prompt-h">
+    <div class="sec-head">
+      <h2 id="prompt-h">✍️ Prompt <span class="sub">自研 · 本仓库原创</span></h2>
+    </div>
+    <div class="wide">
+      <div class="glyph">📜</div>
+      <div>
+        <h3>deep-research</h3>
+        <p>横纵分析法深度研究报告：纵向追发展史、横向比竞品，1~3 万字长文。原本是 ZCode 的 <code style="font-size:12px">/deep-research</code> 命令，与 hv-analysis skill 同源。</p>
+      </div>
+      <a class="chip" style="padding:8px 14px;font-size:12px" href="https://github.com/szwnba/johnson-skills/blob/main/prompts/deep-research.md">查看 Prompt ↗</a>
+    </div>
+  </section>
+
+  <!-- ── MCP ── -->
+  <section id="mcp" aria-labelledby="mcp-h">
+    <div class="sec-head">
+      <h2 id="mcp-h">🔌 MCP <span class="sub">服务器配置配方与使用笔记</span></h2>
+    </div>
+    <div class="wide">
+      <div class="glyph">🎭</div>
+      <div>
+        <h3>playwright-mcp</h3>
+        <p>Playwright 官方 MCP 服务器：无障碍树驱动的浏览器自动化。coding agent 场景官方更推荐配套的 playwright-cli skill。</p>
+      </div>
+      <a class="chip" style="padding:8px 14px;font-size:12px" href="https://github.com/szwnba/johnson-skills/blob/main/mcp/playwright-mcp.md">查看配方 ↗</a>
+    </div>
+  </section>
+
+  <!-- ── 安装方式 ── -->
+  <section id="install" aria-labelledby="install-h">
+    <div class="sec-head">
+      <h2 id="install-h">🛠 安装方式 <span class="sub">三种，从省事到硬核</span></h2>
+    </div>
+    <div class="install">
+      <div class="way">
+        <div class="tag">方式一 · 让 Agent 自己装<small>推荐，支持 Agent Skills 的工具都行</small></div>
+        <div class="body">在 Claude Code、ZCode、Codex 等工具里直接说：<br>
+        <span class="code-inline">帮我安装这个 skill：https://github.com/szwnba/johnson-skills/tree/main/skills/&lt;skill-name&gt;</span><br>
+        每张卡片的「复制安装链接」给你的就是这句话里的 URL。</div>
+      </div>
+      <div class="way">
+        <div class="tag">方式二 · 命令行单装</div>
+        <div class="body"><span class="code-inline">cp -r /tmp/johnson-skills/skills/&lt;skill-name&gt; ~/.agents/skills/</span></div>
+      </div>
+      <div class="way">
+        <div class="tag">方式三 · 新机器整库恢复</div>
+        <div class="body"><span class="code-inline">cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/</span><br>19 个 skill 一次装回，README 里有完整说明。</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Johnson Skills</b> — 个人收藏仓库，只做备份、自研、一键恢复三件事。</p>
+    <p>收藏的 skill 版权归原作者所有，各自目录内保留了上游 LICENSE（如有）。本仓库自研内容以 <a href="https://github.com/szwnba/johnson-skills/blob/main/LICENSE">MIT</a> 开源，如原作者有异议可联系移除。</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.copy');
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function(){
+      var b=this;
+      var done=function(){
+        var t=b.textContent;b.textContent='已复制 ✓';b.classList.add('done');
+        setTimeout(function(){b.textContent=t;b.classList.remove('done')},1400);
+      };
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(b.getAttribute('data-copy')).then(done);
+      }else{
+        var ta=document.createElement('textarea');ta.value=b.getAttribute('data-copy');
+        document.body.appendChild(ta);ta.select();
+        try{document.execCommand('copy');done()}catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
