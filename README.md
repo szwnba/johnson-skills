@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-19-10B981?style=for-the-badge)](#-skills-收藏)
 [![Prompts](https://img.shields.io/badge/Prompts-1-F59E0B?style=for-the-badge)](#-prompts-自研)
-[![MCP](https://img.shields.io/badge/MCP-记录中-8B5CF6?style=for-the-badge)](./mcp)
+[![MCP](https://img.shields.io/badge/MCP-1-8B5CF6?style=for-the-badge)](#-mcp)
 
 ![Agent Skills](https://img.shields.io/badge/Agent_Skills-Standard-D97706?style=flat-square)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-10B981?style=flat-square&logo=anthropic&logoColor=white)
@@ -31,7 +31,7 @@
 |---|---|---|
 | [Skills（收藏）](#-skills-收藏) | 13 | 第三方开源 skill，均标注上游来源 |
 | [Prompts（自研）](#-prompts-自研) | 1 | 自己写的深度研究命令 |
-| [MCP](./mcp) | 记录中 | MCP 服务器配置与使用笔记 |
+| [MCP](#-mcp) | 1 | MCP 服务器配置配方与使用笔记 |
 
 ---
 
@@ -104,7 +104,11 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 
 ## 🔌 MCP
 
-见 [./mcp](./mcp)。目前记录了在用的 MCP/插件清单和收录格式模板，后续逐个补配置与使用笔记。
+| 名字 | 一句话 | 来源 |
+|---|---|---|
+| 🎭 [**playwright-mcp**](./mcp/playwright-mcp.md) | Playwright 官方 MCP 服务器：无障碍树驱动的浏览器自动化（coding agent 场景官方更推荐 playwright-cli skill） | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) |
+
+收录格式与在用清单见 [./mcp](./mcp)。
 
 ---
 
