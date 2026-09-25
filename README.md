@@ -5,7 +5,7 @@
 #### 我自己收藏和在用的 AI Skill / MCP / Prompt 个人工具箱
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-13-10B981?style=for-the-badge)](#-skills-收藏)
+[![Skills](https://img.shields.io/badge/Skills-18-10B981?style=for-the-badge)](#-skills-收藏)
 [![Prompts](https://img.shields.io/badge/Prompts-1-F59E0B?style=for-the-badge)](#-prompts-自研)
 [![MCP](https://img.shields.io/badge/MCP-记录中-8B5CF6?style=for-the-badge)](./mcp)
 
@@ -70,6 +70,11 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 | 名字 | 一句话 | 来源 |
 |---|---|---|
 | 🧭 [**leader**](./skills/leader) | 把一句话的想法拆成 agent 能独立跑完的目标任务书（先实测调研，再一次性提问 ≤5 个） | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
+| 🔥 [**aihot**](./skills/aihot) | AIHOT 中文 AI 资讯/热点/日报查询（匿名只读 API，免 key 免 MCP） | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
+| 📐 [**hv-analysis**](./skills/hv-analysis) | 横纵分析法深度研究：纵轴发展史叙事 + 横轴竞品对比，产出 PDF 研究报告（与 [deep-research](./prompts/deep-research.md) prompt 同源） | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
+| ✍️ [**khazix-writer**](./skills/khazix-writer) | 用卡兹克的口吻和节奏写公众号长文 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
+| 🧹 [**neat-freak**](./skills/neat-freak) | `/neat` 收尾：对齐项目文档、CLAUDE.md、agent 记忆，并审计规则执行情况 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
+| 💽 [**storage-analyzer**](./skills/storage-analyzer) | 磁盘存储分析：只读扫描 + 🟢🟡🔴 三色分级 + 交互式 HTML 报告，网页一键清理 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
 | 🧹 [**defuddle**](./skills/defuddle) | 网页 HTML 抽取为干净 Markdown（Defuddle CLI） | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
 | 🗃 [**obsidian-markdown**](./skills/obsidian-markdown) | Obsidian 风格 Markdown：wikilink、callout、frontmatter、嵌入语法 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
 | ⌨️ [**obsidian-cli**](./skills/obsidian-cli) | 用 Obsidian CLI 读写 vault：笔记、任务、属性、插件开发 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
