@@ -42,7 +42,7 @@
 在支持 Agent Skills 的工具里直接说：
 
 ```
-帮我安装这个 skill：<仓库地址>/tree/main/skills/<skill-name>
+帮我安装这个 skill：https://github.com/szwnba/johnson-skills/tree/main/skills/<skill-name>
 ```
 
 例如 `skills/leader`、`skills/defuddle`。Agent 会自己 clone 到对应目录。
@@ -50,7 +50,7 @@
 **方式二：命令行手动装**
 
 ```bash
-git clone <仓库地址> /tmp/johnson-skills
+git clone https://github.com/szwnba/johnson-skills /tmp/johnson-skills
 cp -r /tmp/johnson-skills/skills/<skill-name> ~/.agents/skills/
 ```
 
@@ -61,8 +61,7 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 ```
 
 > [!NOTE]
-> 推送到 GitHub 后，把本文件里所有 `<仓库地址>` 替换成实际地址，如
-> `https://github.com/your-name/johnson-skills`
+> 仓库地址：https://github.com/szwnba/johnson-skills
 
 ---
 
