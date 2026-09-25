@@ -5,7 +5,7 @@
 #### 我自己收藏和在用的 AI Skill / MCP / Prompt 个人工具箱
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-21-10B981?style=for-the-badge)](#-skills-收藏)
+[![Skills](https://img.shields.io/badge/Skills-19-10B981?style=for-the-badge)](#-skills-收藏)
 [![Prompts](https://img.shields.io/badge/Prompts-1-F59E0B?style=for-the-badge)](#-prompts-自研)
 [![MCP](https://img.shields.io/badge/MCP-记录中-8B5CF6?style=for-the-badge)](./mcp)
 
@@ -76,8 +76,6 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 | 🧹 [**neat-freak**](./skills/neat-freak) | `/neat` 收尾：对齐项目文档、CLAUDE.md、agent 记忆，并审计规则执行情况 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
 | 💽 [**storage-analyzer**](./skills/storage-analyzer) | 磁盘存储分析：只读扫描 + 🟢🟡🔴 三色分级 + 交互式 HTML 报告，网页一键清理 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |
 | 🎭 [**playwright-cli**](./skills/playwright-cli) | 微软官方 agent 浏览器自动化 CLI：导航/快照/点击/填表/测试生成/trace，附 11 篇参考文档 | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) |
-| 🔍 [**playwright-trace**](./skills/playwright-trace) | 命令行检查 Playwright trace 文件：动作、请求、console、报错、截图 | [microsoft/playwright](https://github.com/microsoft/playwright)（内置 skills） |
-| 🧪 [**playwright-component-testing**](./skills/playwright-component-testing) | 用 story gallery 给 React/Vue 组件做隔离测试（官方轻量方案，无需 CT 运行时） | [microsoft/playwright](https://github.com/microsoft/playwright)（内置 skills） |
 | 🧹 [**defuddle**](./skills/defuddle) | 网页 HTML 抽取为干净 Markdown（Defuddle CLI） | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
 | 🗃 [**obsidian-markdown**](./skills/obsidian-markdown) | Obsidian 风格 Markdown：wikilink、callout、frontmatter、嵌入语法 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
 | ⌨️ [**obsidian-cli**](./skills/obsidian-cli) | 用 Obsidian CLI 读写 vault：笔记、任务、属性、插件开发 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) |
