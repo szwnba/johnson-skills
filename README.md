@@ -5,7 +5,7 @@
 #### 我自己收藏和在用的 AI Skill / MCP / Prompt 个人工具箱
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-21-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-22-10B981?style=for-the-badge)](#-skills)
 [![Prompts](https://img.shields.io/badge/Prompts-1-F59E0B?style=for-the-badge)](#-prompts-自研)
 [![MCP](https://img.shields.io/badge/MCP-1-8B5CF6?style=for-the-badge)](#-mcp)
 
@@ -92,6 +92,7 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 | 🧠 [**typesafe-ai**](./skills/typesafe-ai) | 用 TypeSafe System One（Jev）把自然语言/应用状态变成代码可用的类型化判断 | [typesafe-ai/skills](https://github.com/typesafe-ai/skills) |
 | 🖼 [**gzh-illustration**](./skills/gzh-illustration) | 公众号配图双模式：AI 插画（agnes-ai 中转生图）+ 数据信息图（HTML 渲染截图），产物按库规嵌入 drafts/ 稿件 | 自研 |
 | 📤 [**gzh-publisher**](./skills/gzh-publisher) | obsidian drafts/ 稿件 → 微信公众号完整发布管线：扫码登录、受信任粘贴注入正文、剪贴板传图、存草稿/群发 | 自研 |
+| 📥 [**gzh-collector**](./skills/gzh-collector) | 公众号文章整站采集（微信读书路由）：App 关注 → bookId → 列表翻页 + 全文提取，一键落地 Markdown/JSON，断点续传 | 自研 |
 
 > 收藏的 skill 版权归原作者所有，各自目录内保留了上游的 LICENSE（如有）。
 > 本仓库仅作个人备份与快速重装用途，如原作者有异议可联系移除。
