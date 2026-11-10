@@ -5,7 +5,7 @@
 #### 我自己收藏和在用的 AI Skill / MCP / Prompt 个人工具箱
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-22-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-23-10B981?style=for-the-badge)](#-skills)
 [![Prompts](https://img.shields.io/badge/Prompts-1-F59E0B?style=for-the-badge)](#-prompts-自研)
 [![MCP](https://img.shields.io/badge/MCP-1-8B5CF6?style=for-the-badge)](#-mcp)
 
@@ -31,7 +31,7 @@
 
 | 分类 | 数量 | 说明 |
 |---|---|---|
-| [Skills](#-skills) | 21 | 19 个第三方收藏（标注上游来源）+ 2 个自研工作流 |
+| [Skills](#-skills) | 23 | 20 个第三方收藏（标注上游来源）+ 3 个自研工作流 |
 | [Prompts（自研）](#-prompts-自研) | 1 | 自己写的深度研究命令 |
 | [MCP](#-mcp) | 1 | MCP 服务器配置配方与使用笔记 |
 
@@ -90,6 +90,7 @@ cp -r /tmp/johnson-skills/skills/* ~/.agents/skills/
 | 🔥 [**grilling**](./skills/grilling) | 同上的持续拷问模式（触发词驱动） | [mattpocock/skills](https://github.com/mattpocock/skills) |
 | ⚡ [**using-superpowers**](./skills/using-superpowers) | superpowers 生态入口：会话开始先查 skill 再动手 | [obra/superpowers](https://github.com/obra/superpowers) |
 | 🧠 [**typesafe-ai**](./skills/typesafe-ai) | 用 TypeSafe System One（Jev）把自然语言/应用状态变成代码可用的类型化判断 | [typesafe-ai/skills](https://github.com/typesafe-ai/skills) |
+| ⚙️ [**teardown**](./skills/teardown) | 把任意机器变成可拆解的 3D 模拟器（单页离线 HTML）：发动机/起落架/仿生兽，真实参数驱动 + 实时数据面板，还能逐帧录成 60fps 视频配程序化音效 | [elvarofficial/teardown](https://github.com/elvarofficial/teardown) |
 | 🖼 [**gzh-illustration**](./skills/gzh-illustration) | 公众号配图双模式：AI 插画（agnes-ai 中转生图）+ 数据信息图（HTML 渲染截图），产物按库规嵌入 drafts/ 稿件 | 自研 |
 | 📤 [**gzh-publisher**](./skills/gzh-publisher) | obsidian drafts/ 稿件 → 微信公众号完整发布管线：扫码登录、受信任粘贴注入正文、剪贴板传图、存草稿/群发 | 自研 |
 | 📥 [**gzh-collector**](./skills/gzh-collector) | 公众号文章整站采集（微信读书路由）：App 关注 → bookId → 列表翻页 + 全文提取，一键落地 Markdown/JSON，断点续传 | 自研 |
